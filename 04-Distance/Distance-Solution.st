@@ -1,90 +1,84 @@
 !classDefinition: #DistanceTest category: #'Distance-Solution'!
 TestCase subclass: #DistanceTest
-	instanceVariableNames: 'unMetro dosMetros tresMetros cincoCentimetros cienCentimetros milMilimetros unMedioMetro diezKilometros'
+	instanceVariableNames: 'distanceFactory'
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'Distance-Solution'!
 
-!DistanceTest methodsFor: 'setup' stamp: 'AS 5/29/2017 20:43:12'!
+!DistanceTest methodsFor: 'setup' stamp: 'AS 5/30/2017 09:00:40'!
 setUp
-
-	unMetro := Meter withSize: 1.
-	dosMetros := Meter withSize: 2.
-	tresMetros := Meter withSize: 3.
-	cincoCentimetros := Centimeter withSize: 5.
-	cienCentimetros := Centimeter withSize: 100.
-	milMilimetros := Milimeter withSize: 1000.
-	unMedioMetro := Meter withSize: 0.5.
-	diezKilometros := Kilometer withSize: 10.! !
+	
+	distanceFactory := DistanceFactory new.
+	! !
 
 
-!DistanceTest methodsFor: 'Testing' stamp: 'AS 5/29/2017 19:30:58'!
+!DistanceTest methodsFor: 'Testing' stamp: 'AS 5/30/2017 09:00:55'!
 test01OneMeterIsEqualToOneMeter
 
-	self assert: unMetro = unMetro .! !
+	self assert: distanceFactory oneMeter = distanceFactory oneMeter ! !
 
-!DistanceTest methodsFor: 'Testing' stamp: 'AS 5/29/2017 20:23:40'!
+!DistanceTest methodsFor: 'Testing' stamp: 'AS 5/30/2017 09:01:09'!
 test02aMeterCanNotBeNegative
-	 [Meter withSize: -1]
+	 [distanceFactory minusOneMeter]
 	on: Error 
 	do: [ :anErrorMessage | self assert: anErrorMessage messageText = Meter canNotCreateNegativeOrZeroMeasureErrorMessage].
 	
 	! !
 
-!DistanceTest methodsFor: 'Testing' stamp: 'AS 5/29/2017 19:31:13'!
+!DistanceTest methodsFor: 'Testing' stamp: 'AS 5/30/2017 09:01:32'!
 test03OneMeterPlusOneMeterShouldEqualTwoMeters
-	self assert: (unMetro + unMetro ) = dosMetros .! !
+	self assert: (distanceFactory oneMeter + distanceFactory oneMeter) = distanceFactory twoMeters.! !
 
-!DistanceTest methodsFor: 'Testing' stamp: 'AS 5/29/2017 19:31:19'!
+!DistanceTest methodsFor: 'Testing' stamp: 'AS 5/30/2017 09:01:57'!
 test04OneMeterMustEqualOneHundredCentimeters
-	self assert: unMetro = cienCentimetros .! !
+	self assert: distanceFactory oneMeter = distanceFactory oneHundredCentimeters! !
 
-!DistanceTest methodsFor: 'Testing' stamp: 'AS 5/29/2017 19:31:35'!
+!DistanceTest methodsFor: 'Testing' stamp: 'AS 5/30/2017 09:03:05'!
 test05OneHundredCentimetersMustEqualOneThousandMilimeters
-	self assert: cienCentimetros = milMilimetros.! !
+	self assert: distanceFactory oneHundredCentimeters = distanceFactory oneThousandMilimeters! !
 
-!DistanceTest methodsFor: 'Testing' stamp: 'AS 5/29/2017 19:31:48'!
+!DistanceTest methodsFor: 'Testing' stamp: 'AS 5/30/2017 09:04:01'!
 test06TwoMetersMinusOneHundredCentimetersMustEqualOneThousandMilimeters
-	self assert: dosMetros - cienCentimetros = milMilimetros.! !
+	self assert: distanceFactory twoMeters - distanceFactory oneHundredCentimeters = distanceFactory oneThousandMilimeters! !
 
-!DistanceTest methodsFor: 'Testing' stamp: 'AS 5/29/2017 19:45:32'!
+!DistanceTest methodsFor: 'Testing' stamp: 'AS 5/30/2017 09:04:41'!
 test07AMeterTimesTwoMustEqualTwoMeters
-	self assert: [(unMetro * 2 = dosMetros ) and: (2 * unMetro = dosMetros)].! !
+	self assert: [(distanceFactory oneMeter * 2 = distanceFactory twoMeters) and: (2 * distanceFactory oneMeter = distanceFactory twoMeters)].! !
 
-!DistanceTest methodsFor: 'Testing' stamp: 'AS 5/29/2017 19:47:41'!
+!DistanceTest methodsFor: 'Testing' stamp: 'AS 5/30/2017 09:05:38'!
 test08AMeterDividedByTwoMustEqualHalfAMeter
-	self assert: unMetro / 2 = unMedioMetro.! !
+	self assert: distanceFactory oneMeter / 2 = distanceFactory halfAMeter.! !
 
-!DistanceTest methodsFor: 'Testing' stamp: 'AS 5/29/2017 19:51:44'!
+!DistanceTest methodsFor: 'Testing' stamp: 'AS 5/30/2017 09:06:03'!
 test09TenKilometersMustBeGreaterThanAMeter
-	self assert: diezKilometros > unMetro.! !
+	self assert: distanceFactory tenKilometers > distanceFactory oneMeter.! !
 
-!DistanceTest methodsFor: 'Testing' stamp: 'AS 5/29/2017 19:56:30'!
+!DistanceTest methodsFor: 'Testing' stamp: 'AS 5/30/2017 09:06:59'!
 test10OneMeterIsLessThanThreeMeters
-	self assert: unMetro < tresMetros! !
+	self assert: distanceFactory oneMeter < distanceFactory threeMeters ! !
 
-!DistanceTest methodsFor: 'Testing' stamp: 'AS 5/29/2017 19:59:02'!
+!DistanceTest methodsFor: 'Testing' stamp: 'AS 5/30/2017 09:07:13'!
 test11TenKilometersIsGreaterOrEqualThanOneMeter
-	self assert: diezKilometros >= unMetro! !
+	self assert: distanceFactory tenKilometers >= distanceFactory oneMeter ! !
 
-!DistanceTest methodsFor: 'Testing' stamp: 'AS 5/29/2017 20:00:09'!
+!DistanceTest methodsFor: 'Testing' stamp: 'AS 5/30/2017 09:07:26'!
 test12OneMeterIsLessThanOrEqualToThreeMeters
-	self assert: unMetro <= tresMetros! !
+	self assert: distanceFactory oneMeter <= distanceFactory threeMeters ! !
 
-!DistanceTest methodsFor: 'Testing' stamp: 'AS 5/29/2017 20:38:50'!
+!DistanceTest methodsFor: 'Testing' stamp: 'AS 5/30/2017 09:07:46'!
 test13OneMeterToThreeMetersMustEqualAnIntervalFromOneToThree
-	self assert: (unMetro to: tresMetros) = (1 to: 3).! !
+	self assert: (distanceFactory oneMeter to: distanceFactory threeMeters) = (1 to: 3).! !
 
-!DistanceTest methodsFor: 'Testing' stamp: 'AS 5/29/2017 20:48:33'!
+!DistanceTest methodsFor: 'Testing' stamp: 'AS 5/30/2017 09:08:17'!
 test14OneMeterToTenKilometersWithAStepOfFiveCentimetersMustEqualAnIntervalFromOneToTenThousandWithStepsOf05
-	self assert: (unMetro to: diezKilometros by: cincoCentimetros) = (1 to: 10000 by: 5/100).! !
+	self assert: (distanceFactory oneMeter to: distanceFactory tenKilometers by: distanceFactory fiveCentimeters) = (1 to: 10000 by: 5/100).! !
 
-!DistanceTest methodsFor: 'Testing' stamp: 'AS 5/29/2017 23:00:09'!
+!DistanceTest methodsFor: 'Testing' stamp: 'AS 5/30/2017 09:09:03'!
 test15ForOneMeterToTenKilometersByFiveCentimetersItShouldDoATaks
 	| counter |
 	
 	counter := 0.
-	self assert: (unMetro to: diezKilometros by: cincoCentimetros do: [:i | counter := counter + 1 ] ) = (1 to: 10000 by: 5/100 do: [:i | counter := counter + 1 ]).! !
+	self assert: (distanceFactory oneMeter to: distanceFactory tenKilometers by: distanceFactory fiveCentimeters do: [:i | counter := counter + 1 ] ) = (1 to: 10000 by: 5/100 do: [:i | counter := counter + 1 ]).! !
 
 
 !classDefinition: #DistanceFactory category: #'Distance-Solution'!
@@ -93,6 +87,14 @@ Object subclass: #DistanceFactory
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'Distance-Solution'!
+
+!DistanceFactory methodsFor: 'as yet unclassified' stamp: 'AS 5/30/2017 09:08:31'!
+fiveCentimeters
+	^Centimeter withSize: 5.! !
+
+!DistanceFactory methodsFor: 'as yet unclassified' stamp: 'AS 5/30/2017 09:05:23'!
+halfAMeter
+	^Meter withSize: 0.5! !
 
 !DistanceFactory methodsFor: 'as yet unclassified' stamp: 'AS 5/29/2017 20:21:21'!
 minusOneMeter
@@ -109,6 +111,18 @@ oneHundredCentimeters
 !DistanceFactory methodsFor: 'as yet unclassified' stamp: 'AS 5/29/2017 20:22:14'!
 oneMeter
 	^Meter withSize: 1.! !
+
+!DistanceFactory methodsFor: 'as yet unclassified' stamp: 'AS 5/30/2017 09:03:27'!
+oneThousandMilimeters
+	^Milimeter withSize: 1000.! !
+
+!DistanceFactory methodsFor: 'as yet unclassified' stamp: 'AS 5/30/2017 09:06:15'!
+tenKilometers
+	^Kilometer withSize: 10.! !
+
+!DistanceFactory methodsFor: 'as yet unclassified' stamp: 'AS 5/30/2017 09:06:42'!
+threeMeters
+	^Meter withSize: 3.! !
 
 !DistanceFactory methodsFor: 'as yet unclassified' stamp: 'AS 5/29/2017 20:22:25'!
 twoHundredCentimeters
