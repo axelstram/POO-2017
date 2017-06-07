@@ -1,6 +1,6 @@
 !classDefinition: #MeasureTest category: #'Measure-Solution'!
 TestCase subclass: #MeasureTest
-	instanceVariableNames: 'zeroMeters oneMeter twoMeters tenMeters twentyMeters oneHundredMeters oneHundredCentimeters zeroDollars oneDollar tenDollars sixteenPesos thirtyLiters threeLiters oneLiter tenMetersPerSecond tenMetersPerSecondSquared oneSecond'
+	instanceVariableNames: 'zeroMeters oneMeter twoMeters tenMeters twentyMeters oneHundredMeters oneHundredCentimeters zeroDollars oneDollar tenDollars sixteenPesos thirtyLiters threeLiters oneLiter tenMetersPerSecond twentyMetersPerSecond tenMetersPerSecondSquared oneSecond'
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'Measure-Solution'!
@@ -47,12 +47,20 @@ test10ConvertingToUnitsOfOtherTypesThrowsAnError
 	on: Error
 	do: [:anError | self assert: anError messageText equals: Measure canNotConvertNumberErrorMessage].! !
 
-!MeasureTest methodsFor: 'Testing' stamp: 'AS 6/7/2017 15:32:05'!
+!MeasureTest methodsFor: 'Testing' stamp: 'AS 6/7/2017 17:28:34'!
 test11MultiplyingACompoundUnitByACompatibleSimpleUnitGivesBackASimpleUnit
-	self assert: tenMetersPerSecondSquared * oneSecond = tenMetersPerSecond.! !
+	self assert: ((tenMetersPerSecondSquared * oneSecond = tenMetersPerSecond) and: (oneSecond * tenMetersPerSecondSquared = tenMetersPerSecond)) ! !
+
+!MeasureTest methodsFor: 'Testing' stamp: 'AS 6/7/2017 17:33:29'!
+test12AddingTwoCompoundMeasuresWorksCorrectly
+	self assert: tenMetersPerSecond + tenMetersPerSecond  = twentyMetersPerSecond ! !
+
+!MeasureTest methodsFor: 'Testing' stamp: 'AS 6/7/2017 17:33:57'!
+test13SubtractingTwoCompoundMeasuresWorksCorrectly
+	self assert: twentyMetersPerSecond - tenMetersPerSecond  = tenMetersPerSecond ! !
 
 
-!MeasureTest methodsFor: 'setUp' stamp: 'AS 6/7/2017 14:55:07'!
+!MeasureTest methodsFor: 'setUp' stamp: 'AS 6/7/2017 17:32:25'!
 initialize
 	zeroDollars := MeasureFactory zeroDollars.
 	oneDollar := MeasureFactory oneDollar.
@@ -70,6 +78,7 @@ initialize
 	oneLiter := MeasureFactory oneLiter.
 	oneSecond := MeasureFactory oneSecond.
 	tenMetersPerSecond := MeasureFactory tenMetersPerSecond.
+	twentyMetersPerSecond := MeasureFactory twentyMetersPerSecond.
 	tenMetersPerSecondSquared := MeasureFactory tenMetersPerSecondSquared.! !
 
 
@@ -80,7 +89,7 @@ Object subclass: #Measure
 	poolDictionaries: ''
 	category: 'Measure-Solution'!
 
-!Measure methodsFor: 'arithmetic' stamp: 'AS 6/7/2017 16:22:59'!
+!Measure methodsFor: 'arithmetic' stamp: 'AS 6/7/2017 17:37:31'!
 * aNumber
 	| newAmount newUnit |
 	
@@ -88,7 +97,10 @@ Object subclass: #Measure
 	newUnit := self unit.
 	
 	((self unit isKindOf: CompoundUnit) and: (aNumber isKindOf: Measure)) ifTrue: [newUnit := self unit * aNumber unit.
-																									 newAmount := self amount * aNumber amount].
+																					   newAmount := self amount * aNumber amount].
+																				
+	((aNumber isKindOf: Measure) ifTrue: [ (aNumber unit isKindOf: CompoundUnit) ifTrue: [newUnit := aNumber unit * self unit.
+																					   newAmount := aNumber amount * self amount]]).
 	
 	^Measure withAmount: newAmount andUnit: newUnit.! !
 
@@ -252,6 +264,10 @@ tenMetersPerSecond
 !MeasureFactory class methodsFor: 'compound' stamp: 'AS 6/7/2017 14:48:34'!
 tenMetersPerSecondSquared
 	^Measure withAmount: 10 andUnit: CompoundUnit metersPerSecondSquared ! !
+
+!MeasureFactory class methodsFor: 'compound' stamp: 'AS 6/7/2017 17:31:27'!
+twentyMetersPerSecond
+	^Measure withAmount: 20 andUnit: CompoundUnit metersPerSecond ! !
 
 
 !classDefinition: #Unit category: #'Measure-Solution'!
