@@ -195,79 +195,225 @@ Object subclass: #MeasureFactory
 MeasureFactory class
 	instanceVariableNames: ''!
 
-!MeasureFactory class methodsFor: 'simple' stamp: 'AS 6/6/2017 19:53:36'!
-oneDollar
-	^Measure withAmount: 1 andUnit: Unit dollar ! !
-
-!MeasureFactory class methodsFor: 'simple' stamp: 'AS 6/6/2017 19:53:47'!
-oneHundredCentimeters
-	^Measure withAmount: 100 andUnit: Unit centimeter ! !
-
-!MeasureFactory class methodsFor: 'simple' stamp: 'AS 6/6/2017 19:54:01'!
-oneHundredMeters
-	^Measure withAmount: 100 andUnit: Unit meter ! !
-
-!MeasureFactory class methodsFor: 'simple' stamp: 'AS 6/6/2017 19:54:11'!
+!MeasureFactory class methodsFor: 'volume' stamp: 'AS 6/6/2017 19:54:11'!
 oneLiter
 	^Measure withAmount: 1 andUnit: Unit liter ! !
 
-!MeasureFactory class methodsFor: 'simple' stamp: 'AS 6/6/2017 19:54:23'!
-oneMeter
-	^Measure withAmount: 1 andUnit: Unit meter.! !
-
-!MeasureFactory class methodsFor: 'simple' stamp: 'AS 6/7/2017 14:54:04'!
-oneSecond
-	^Measure withAmount: 1 andUnit: Unit second
-! !
-
-!MeasureFactory class methodsFor: 'simple' stamp: 'AS 6/6/2017 19:54:34'!
-sixteenPesos
-	^Measure withAmount: 16 andUnit: Unit peso ! !
-
-!MeasureFactory class methodsFor: 'simple' stamp: 'AS 6/6/2017 19:54:44'!
-tenDollars
-	^Measure withAmount: 10 andUnit: Unit dollar ! !
-
-!MeasureFactory class methodsFor: 'simple' stamp: 'AS 6/6/2017 19:54:57'!
-tenMeters
-	^Measure withAmount: 10 andUnit: Unit meter ! !
-
-!MeasureFactory class methodsFor: 'simple' stamp: 'AS 6/6/2017 19:55:06'!
+!MeasureFactory class methodsFor: 'volume' stamp: 'AS 6/6/2017 19:55:06'!
 thirtyLiters
 	^Measure withAmount: 30 andUnit: Unit liter ! !
 
-!MeasureFactory class methodsFor: 'simple' stamp: 'AS 6/6/2017 19:55:20'!
+!MeasureFactory class methodsFor: 'volume' stamp: 'AS 6/6/2017 19:55:20'!
 threeLiters
 	^Measure withAmount: 3 andUnit: Unit liter ! !
 
-!MeasureFactory class methodsFor: 'simple' stamp: 'AS 6/6/2017 19:55:30'!
+
+!MeasureFactory class methodsFor: 'compoundMeasures' stamp: 'AS 6/8/2017 15:08:23'!
+eightCubicMeters
+	^Measure withAmount: 8 andUnit: CompoundUnit cubicMeters ! !
+
+!MeasureFactory class methodsFor: 'compoundMeasures' stamp: 'AS 6/8/2017 15:08:33'!
+fourSquaredMeters
+	^Measure withAmount: 4 andUnit: CompoundUnit squaredMeters ! !
+
+!MeasureFactory class methodsFor: 'compoundMeasures' stamp: 'AS 6/8/2017 15:08:48'!
+oneHundredTwentyOneMetersPerSecond
+	^Measure withAmount: 121 andUnit: CompoundUnit metersPerSecond 	! !
+
+!MeasureFactory class methodsFor: 'compoundMeasures' stamp: 'AS 6/8/2017 15:09:20'!
+oneMeterPerSecond 
+	^Measure withAmount: 1 andUnit: CompoundUnit metersPerSecond 	! !
+
+!MeasureFactory class methodsFor: 'compoundMeasures' stamp: 'AS 6/8/2017 15:09:37'!
+oneSquaredMeter 
+	^Measure withAmount: 1 andUnit: CompoundUnit squaredMeters 	! !
+
+!MeasureFactory class methodsFor: 'compoundMeasures' stamp: 'AS 6/8/2017 15:10:40'!
+oneSquaredSecond 
+	^Measure withAmount: 1 andUnit: CompoundUnit squaredSeconds ! !
+
+!MeasureFactory class methodsFor: 'compoundMeasures' stamp: 'AS 6/7/2017 14:44:39'!
+tenMetersPerSecond
+	^Measure withAmount: 10 andUnit: CompoundUnit metersPerSecond ! !
+
+!MeasureFactory class methodsFor: 'compoundMeasures' stamp: 'AS 6/7/2017 14:48:34'!
+tenMetersPerSecondSquared
+	^Measure withAmount: 10 andUnit: CompoundUnit metersPerSecondSquared ! !
+
+!MeasureFactory class methodsFor: 'compoundMeasures' stamp: 'AS 6/7/2017 17:31:27'!
+twentyMetersPerSecond
+	^Measure withAmount: 20 andUnit: CompoundUnit metersPerSecond ! !
+
+!MeasureFactory class methodsFor: 'compoundMeasures' stamp: 'AS 6/8/2017 15:11:12'!
+twoMetersBySecond 
+	^Measure withAmount: 2 andUnit: CompoundUnit metersPerSecond ! !
+
+!MeasureFactory class methodsFor: 'compoundMeasures' stamp: 'AS 6/8/2017 15:11:26'!
+twoMetersPerSquaredSecond 
+	^Measure withAmount: 2 andUnit: CompoundUnit squaredSeconds ! !
+
+!MeasureFactory class methodsFor: 'compoundMeasures' stamp: 'AS 6/8/2017 15:11:37'!
+twoMetersTimesSecond 
+	^Measure withAmount: 2 andUnit: CompoundUnit metersTimeSecond ! !
+
+
+!MeasureFactory class methodsFor: 'distanceUnits' stamp: 'AS 6/8/2017 14:36:37'!
+centimeter
+	^Unit 	centimeter ! !
+
+!MeasureFactory class methodsFor: 'distanceUnits' stamp: 'AS 6/8/2017 14:38:36'!
+decameter
+	^Unit decameter ! !
+
+!MeasureFactory class methodsFor: 'distanceUnits' stamp: 'AS 6/8/2017 14:38:50'!
+decimeter
+	^Unit decimeter ! !
+
+!MeasureFactory class methodsFor: 'distanceUnits' stamp: 'AS 6/8/2017 14:39:02'!
+hectometer
+	^Unit hectometer ! !
+
+!MeasureFactory class methodsFor: 'distanceUnits' stamp: 'AS 6/8/2017 14:39:07'!
+kilometer
+	^Unit kilometer ! !
+
+!MeasureFactory class methodsFor: 'distanceUnits' stamp: 'AS 6/8/2017 14:39:12'!
+meter
+	^Unit meter ! !
+
+!MeasureFactory class methodsFor: 'distanceUnits' stamp: 'AS 6/8/2017 14:39:16'!
+millimeter
+	^Unit millimeter ! !
+
+
+!MeasureFactory class methodsFor: 'measures' stamp: 'AS 6/8/2017 14:42:54'!
+minusOneMeter
+	^Measure withAmount: -1 andUnit: Unit meter ! !
+
+!MeasureFactory class methodsFor: 'measures' stamp: 'AS 6/8/2017 14:43:15'!
+oneCentimeter
+	^Measure withAmount: 1 andUnit: Unit centimeter! !
+
+!MeasureFactory class methodsFor: 'measures' stamp: 'AS 6/6/2017 19:53:47'!
+oneHundredCentimeters
+	^Measure withAmount: 100 andUnit: Unit centimeter ! !
+
+!MeasureFactory class methodsFor: 'measures' stamp: 'AS 6/6/2017 19:54:01'!
+oneHundredMeters
+	^Measure withAmount: 100 andUnit: Unit meter ! !
+
+!MeasureFactory class methodsFor: 'measures' stamp: 'AS 6/6/2017 19:54:23'!
+oneMeter
+	^Measure withAmount: 1 andUnit: Unit meter.! !
+
+!MeasureFactory class methodsFor: 'measures' stamp: 'AS 6/6/2017 19:54:57'!
+tenMeters
+	^Measure withAmount: 10 andUnit: Unit meter ! !
+
+!MeasureFactory class methodsFor: 'measures' stamp: 'AS 6/6/2017 19:55:30'!
 twentyMeters
 	^Measure withAmount: 20 andUnit: Unit meter ! !
 
-!MeasureFactory class methodsFor: 'simple' stamp: 'AS 6/6/2017 19:55:39'!
+!MeasureFactory class methodsFor: 'measures' stamp: 'AS 6/8/2017 14:43:30'!
+twoHundredCentimeters
+	^Measure withAmount: 200 andUnit: Unit centimeter! !
+
+!MeasureFactory class methodsFor: 'measures' stamp: 'AS 6/6/2017 19:55:39'!
 twoMeters
 	^Measure withAmount: 2 andUnit: Unit meter ! !
 
-!MeasureFactory class methodsFor: 'simple' stamp: 'AS 6/6/2017 19:55:49'!
-zeroDollars
-	^Measure withAmount: 0 andUnit: Unit dollar ! !
-
-!MeasureFactory class methodsFor: 'simple' stamp: 'AS 6/6/2017 19:56:02'!
+!MeasureFactory class methodsFor: 'measures' stamp: 'AS 6/6/2017 19:56:02'!
 zeroMeters
 	^Measure withAmount: 0 andUnit: Unit meter ! !
 
 
-!MeasureFactory class methodsFor: 'compound' stamp: 'AS 6/7/2017 14:44:39'!
-tenMetersPerSecond
-	^Measure withAmount: 10 andUnit: CompoundUnit metersPerSecond ! !
+!MeasureFactory class methodsFor: 'currency' stamp: 'AS 6/6/2017 19:53:36'!
+oneDollar
+	^Measure withAmount: 1 andUnit: Unit dollar ! !
 
-!MeasureFactory class methodsFor: 'compound' stamp: 'AS 6/7/2017 14:48:34'!
-tenMetersPerSecondSquared
-	^Measure withAmount: 10 andUnit: CompoundUnit metersPerSecondSquared ! !
+!MeasureFactory class methodsFor: 'currency' stamp: 'AS 6/6/2017 19:54:34'!
+sixteenPesos
+	^Measure withAmount: 16 andUnit: Unit peso ! !
 
-!MeasureFactory class methodsFor: 'compound' stamp: 'AS 6/7/2017 17:31:27'!
-twentyMetersPerSecond
-	^Measure withAmount: 20 andUnit: CompoundUnit metersPerSecond ! !
+!MeasureFactory class methodsFor: 'currency' stamp: 'AS 6/6/2017 19:54:44'!
+tenDollars
+	^Measure withAmount: 10 andUnit: Unit dollar ! !
+
+!MeasureFactory class methodsFor: 'currency' stamp: 'AS 6/6/2017 19:55:49'!
+zeroDollars
+	^Measure withAmount: 0 andUnit: Unit dollar ! !
+
+
+!MeasureFactory class methodsFor: 'time' stamp: 'AS 6/8/2017 15:06:52'!
+oneDay
+	^Measure withAmount: 1 andUnit: Unit day 
+! !
+
+!MeasureFactory class methodsFor: 'time' stamp: 'AS 6/8/2017 15:06:59'!
+oneHour
+	^Measure withAmount: 1 andUnit: Unit hour 
+! !
+
+!MeasureFactory class methodsFor: 'time' stamp: 'AS 6/8/2017 15:07:10'!
+oneMinute
+	^Measure withAmount: 1 andUnit: Unit minute 
+! !
+
+!MeasureFactory class methodsFor: 'time' stamp: 'AS 6/7/2017 14:54:04'!
+oneSecond
+	^Measure withAmount: 1 andUnit: Unit second
+! !
+
+!MeasureFactory class methodsFor: 'time' stamp: 'AS 6/8/2017 15:07:17'!
+sixtyMinutes
+	^Measure withAmount: 60 andUnit: Unit minute 
+! !
+
+!MeasureFactory class methodsFor: 'time' stamp: 'AS 6/8/2017 15:07:30'!
+sixtyOneSeconds
+	^Measure withAmount: 61 andUnit: Unit second 
+! !
+
+!MeasureFactory class methodsFor: 'time' stamp: 'AS 6/8/2017 15:07:37'!
+sixtySeconds
+	^Measure withAmount: 60 andUnit: Unit second 
+! !
+
+!MeasureFactory class methodsFor: 'time' stamp: 'AS 6/8/2017 15:07:45'!
+twentyFourHours 
+	^Measure withAmount: 24 andUnit: Unit hour 
+! !
+
+!MeasureFactory class methodsFor: 'time' stamp: 'AS 6/8/2017 15:07:54'!
+twoSeconds 
+	^Measure withAmount: 2 andUnit: Unit second 
+! !
+
+!MeasureFactory class methodsFor: 'time' stamp: 'AS 6/8/2017 15:08:04'!
+zeroSeconds 
+	^Measure withAmount: 0 andUnit: Unit second 
+! !
+
+
+!MeasureFactory class methodsFor: 'temperature' stamp: 'AS 6/8/2017 15:05:46'!
+oneCelsius
+	^Measure withAmount: 1 andUnit: Unit celsius ! !
+
+!MeasureFactory class methodsFor: 'temperature' stamp: 'AS 6/8/2017 15:06:06'!
+thirtyTwoFahrenheits
+	^Measure withAmount: 32 andUnit: Unit fahrenheit ! !
+
+!MeasureFactory class methodsFor: 'temperature' stamp: 'AS 6/8/2017 15:06:17'!
+twoCelsius
+	^Measure withAmount: 2 andUnit: Unit celsius ! !
+
+!MeasureFactory class methodsFor: 'temperature' stamp: 'AS 6/8/2017 15:06:26'!
+zeroCelsius
+	^Measure withAmount: 0 andUnit: Unit celsius ! !
+
+!MeasureFactory class methodsFor: 'temperature' stamp: 'AS 6/8/2017 15:06:34'!
+zeroKelvin
+	^Measure withAmount: 0 andUnit: Unit kelvin ! !
 
 
 !classDefinition: #Unit category: #'Measure-Solution'!
@@ -296,25 +442,42 @@ withRatio: aRatio andType: aType
 	ratio := aRatio.
 	type := aType! !
 
+
+!Unit methodsFor: 'arithmetic' stamp: 'AS 6/8/2017 15:03:38'!
+* aUnit
+	^Unit new withRatio: (ratio * aUnit ratio) andType: type + aUnit type! !
+
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
 !classDefinition: 'Unit class' category: #'Measure-Solution'!
 Unit class
 	instanceVariableNames: ''!
 
-!Unit class methodsFor: 'distance' stamp: 'AS 6/6/2017 20:26:24'!
+!Unit class methodsFor: 'units' stamp: 'AS 6/6/2017 20:26:24'!
 centimeter
 	^Unit new withRatio: 1/100 andType: 'distance'! !
 
-!Unit class methodsFor: 'distance' stamp: 'AS 6/6/2017 20:26:30'!
+!Unit class methodsFor: 'units' stamp: 'AS 6/8/2017 14:37:19'!
+decameter
+	^Unit new withRatio: 10 andType: 'distance'! !
+
+!Unit class methodsFor: 'units' stamp: 'AS 6/8/2017 14:37:56'!
+decimeter
+	^Unit new withRatio: 1/10 andType: 'distance'! !
+
+!Unit class methodsFor: 'units' stamp: 'AS 6/8/2017 14:38:10'!
+hectometer
+	^Unit new withRatio: 100 andType: 'distance'! !
+
+!Unit class methodsFor: 'units' stamp: 'AS 6/6/2017 20:26:30'!
 kilometer
 	^Unit new withRatio: 1000 andType: 'distance'! !
 
-!Unit class methodsFor: 'distance' stamp: 'AS 6/6/2017 20:26:33'!
+!Unit class methodsFor: 'units' stamp: 'AS 6/6/2017 20:26:33'!
 meter
 	^Unit new withRatio: 1 andType: 'distance'! !
 
-!Unit class methodsFor: 'distance' stamp: 'AS 6/6/2017 20:26:36'!
+!Unit class methodsFor: 'units' stamp: 'AS 6/6/2017 20:26:36'!
 milimeter
 	^Unit new withRatio: 1/1000 andType: 'distance'! !
 
@@ -333,6 +496,10 @@ liter
 	^Unit new withRatio: 1 andType: 'volume'! !
 
 
+!Unit class methodsFor: 'time' stamp: 'AS 6/8/2017 14:47:35'!
+day
+	^Unit new withRatio: 24 andType: 'time'.! !
+
 !Unit class methodsFor: 'time' stamp: 'AS 6/7/2017 13:58:56'!
 hour
 	^Unit new withRatio: 1 andType: 'time'.! !
@@ -345,9 +512,35 @@ minute
 second
 	^Unit new withRatio: 1 andType: 'time'.! !
 
-!Unit class methodsFor: 'time' stamp: 'AS 6/7/2017 13:58:13'!
+
+!Unit class methodsFor: 'temperature' stamp: 'AS 6/8/2017 14:44:44'!
+celsius
+	^Unit new withRatio: 1 andType: 'temperature'! !
+
+!Unit class methodsFor: 'temperature' stamp: 'AS 6/8/2017 14:46:26'!
+fahrenheit
+	^Unit new withRatio: -17.2222 andType: 'temperature'! !
+
+!Unit class methodsFor: 'temperature' stamp: 'AS 6/8/2017 14:47:04'!
+kelvin
+	^Unit new withRatio: -272.15 andType: 'temperature'! !
+
+
+!Unit class methodsFor: 'compound' stamp: 'AS 6/8/2017 14:49:36'!
+cubicMeters
+	^Unit new withRatio: 1 andType: 'metersCubed'.! !
+
+!Unit class methodsFor: 'compound' stamp: 'AS 6/8/2017 14:51:15'!
+metersPerSecond
+	^Unit new withRatio: 1 andType: 'metersSecond'.! !
+
+!Unit class methodsFor: 'compound' stamp: 'AS 6/7/2017 13:58:13'!
 secondsSquared
 	^Unit new withRatio: 1 andType: 'timeSquared'.! !
+
+!Unit class methodsFor: 'compound' stamp: 'AS 6/8/2017 14:50:52'!
+squaredMeters
+	^Unit new withRatio: 1 andType: 'metersSquared'.! !
 
 
 !classDefinition: #CompoundUnit category: #'Measure-Solution'!
@@ -382,6 +575,10 @@ over
 CompoundUnit class
 	instanceVariableNames: ''!
 
+!CompoundUnit class methodsFor: 'as yet unclassified' stamp: 'AS 6/8/2017 14:56:09'!
+cubicMeters
+	^CompoundUnit new withRatio: 1 andType: Unit cubicMeters over: 1.! !
+
 !CompoundUnit class methodsFor: 'as yet unclassified' stamp: 'AS 6/7/2017 14:39:39'!
 metersPerSecond
 	^CompoundUnit new withRatio: 1 andType: Unit meter over: Unit second.! !
@@ -389,3 +586,15 @@ metersPerSecond
 !CompoundUnit class methodsFor: 'as yet unclassified' stamp: 'AS 6/7/2017 14:47:38'!
 metersPerSecondSquared
 	^CompoundUnit new withRatio: 1 andType: Unit meter over: Unit secondsSquared.! !
+
+!CompoundUnit class methodsFor: 'as yet unclassified' stamp: 'AS 6/8/2017 15:01:06'!
+metersTimeSecond
+	^CompoundUnit new withRatio: 1 andType: (Unit meter * Unit second) over: 1.! !
+
+!CompoundUnit class methodsFor: 'as yet unclassified' stamp: 'AS 6/8/2017 14:56:41'!
+squaredMeters
+	^CompoundUnit new withRatio: 1 andType: Unit squaredMeters over: 1.! !
+
+!CompoundUnit class methodsFor: 'as yet unclassified' stamp: 'AS 6/8/2017 15:10:23'!
+squaredSeconds
+	^CompoundUnit new withRatio: 1 andType: Unit secondsSquared over: 1.! !
